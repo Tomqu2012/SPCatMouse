@@ -28,49 +28,55 @@ public class movement : MonoBehaviour
     void Update()
     {
         if (gameObject.GetComponent<health>().alive && ready) {
-            rotation();
-            thrust();
+            if (!rotation())
+            {
+                thrust(200);
+            }
+            else
+            {
+                thrust(130);
+            }
             StaminaFill();
         }
     }
 
 
-    public void rotation() {
+    public bool rotation() {
         if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
         {
-            transform.Rotate(0f, 0f, 5f);
+            transform.Rotate(0f, 0f, 3.5f);
+            return true;
         }
 
         if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
         {
-            transform.Rotate(0f, 0f, -5f);
+            transform.Rotate(0f, 0f, -3.5f);
+            return true;
         }
 
         else
         {
             transform.Rotate(0f, 0f, Random.Range(-0.5f, 0.5f));
+            return false;
         }
     }
 
-    public void thrust() {
-        rb2D.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Impulse);
+    public void thrust(float speed) {
         dust.Play();
         if (stamina > 0f && ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))))
         {
-            speed = 400f;
+            rb2D.AddForce(transform.up * 2 * speed * Time.deltaTime, ForceMode2D.Impulse);
             stamina -= (2 * Time.deltaTime);
         }
-
-        else if (stamina < 10f && !((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))))
+        else
+        {
+            rb2D.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Impulse);
+        }
+        if (stamina < 10f && !((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))))
         {
             StartCoroutine("Regen", 3f);
         }
 
-        else {
-
-            speed = NormalSpeed;
-
-        }
     }
 
 

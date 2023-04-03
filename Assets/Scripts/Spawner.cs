@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public GameObject botPrefab;
     public GameObject cheesePrefab;
-    public GameObject catPrefab;
+    public List<GameObject> catPrefabs;
     public GameObject coinPrefab;
     public GameObject[] forestPrefabs;
     public float numBots;
@@ -15,11 +15,14 @@ public class Spawner : MonoBehaviour
     public float maxCheese = 5f;
     public float numCoins;
     public float maxCoins = 10f;
+    public float upperBoundX = 50f;
+    public float lowerBoundX = -50f;
+    public float upperBoundY = 33f;
+    public float lowerBoundY = -33f;
 
     // Start is called before the first frame update
     void Start()
     {
-        catPrefab = GameObject.FindGameObjectWithTag("Cat"); 
         numCheese = 0f;
         numCoins = 0f;
         spawnBots();
@@ -37,13 +40,19 @@ public class Spawner : MonoBehaviour
     void spawnBots() {
         for (int i = 0; i < numBots; i++)
         {
-            catPrefab.GetComponent<CatBot>().mice.Add(Instantiate(botPrefab, new Vector2(Random.Range(-50f, 50f), Random.Range(-33f, 33f)), Quaternion.identity));
+            GameObject botClone = Instantiate(botPrefab, new Vector2(Random.Range(lowerBoundX, upperBoundX), Random.Range(lowerBoundY, upperBoundY)),
+                Quaternion.identity);
+            foreach (GameObject catPrefab in catPrefabs)
+            {
+                catPrefab.GetComponent<CatBot>().mice.Add(botClone);
+                botClone.GetComponent<MiceAI>().Cat.Add(catPrefab);
+            }
         }
     }
 
     void spawnCheese() {
         if ((numCheese < maxCheese) && (numCheese >= 0)) {
-            Instantiate(cheesePrefab, new Vector2(Random.Range(-50f, 50f), Random.Range(-33f, 33f)), Quaternion.identity);
+            Instantiate(cheesePrefab, new Vector2(Random.Range(lowerBoundX, upperBoundX), Random.Range(lowerBoundY, upperBoundY)), Quaternion.identity);
             numCheese++;
         }
     }
@@ -52,7 +61,7 @@ public class Spawner : MonoBehaviour
     {
         if ((numCoins < maxCoins) && (numCoins >= 0))
         {
-            Instantiate(coinPrefab, new Vector2(Random.Range(-50f, 50f), Random.Range(-33f, 33f)), Quaternion.identity);
+            Instantiate(coinPrefab, new Vector2(Random.Range(lowerBoundX, upperBoundX), Random.Range(lowerBoundY, upperBoundY)), Quaternion.identity);
             numCoins++;
         }
     }
@@ -61,7 +70,7 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < forestObstacles; i++)
         {
-            Instantiate(forestPrefabs[Random.Range(0, 13)], new Vector2(Random.Range(-50f, 50f), Random.Range(-33f, 33f)), Quaternion.identity);
+            Instantiate(forestPrefabs[Random.Range(0, 13)], new Vector2(Random.Range(lowerBoundX, upperBoundX), Random.Range(lowerBoundY, upperBoundY)), Quaternion.identity);
         }
     }
 }

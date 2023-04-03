@@ -21,6 +21,7 @@ public class CatBot : MonoBehaviour
     public bool gameReady;
     private bool boundrybreach;
     public GameObject obs;
+    public bool stuck;
 
 
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class CatBot : MonoBehaviour
     {
         Manager = GameObject.Find("Spawner");
         boundrybreach = false;
+        stuck = false;
 
         speed = 16f;
         rotateRate1 = Random.Range(0.25f, 0.50f);
@@ -44,24 +46,21 @@ public class CatBot : MonoBehaviour
     void Update()
     {
         if (gameReady) {
-
+            thrust2();
             if (closestMice == null)
             {
                 FindMice();
-                thrust2();
             }
 
-            else if (!avoidObstacle())
+            else if (!stuck)
             {
                 rotation();
-                thrust2();
             }
         }
     }
 
-    public bool avoidObstacle()
+    public void avoidObstacle()
     {
-        return false;
     }
     public IEnumerator CMice()
     {
@@ -72,7 +71,7 @@ public class CatBot : MonoBehaviour
     public void FindMice()
     {
         GameObject closest = null;
-        float distance = 500.0f;
+        float distance = 10000.0f;
         Vector3 position = transform.position;
         foreach (GameObject g in mice)
         {

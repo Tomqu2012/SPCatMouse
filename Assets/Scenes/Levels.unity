@@ -673,7 +673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &182646772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1465,7 +1465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &702741957
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1723,7 +1723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &776553852
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2643,7 +2643,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 699664800}
         m_TargetAssemblyTypeName: ButtonUI, Assembly-CSharp
-        m_MethodName: playMouse
+        m_MethodName: playMouseDark
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2827,7 +2827,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 699664800}
         m_TargetAssemblyTypeName: ButtonUI, Assembly-CSharp
-        m_MethodName: playMouse
+        m_MethodName: playMouseLab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3002,7 +3002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1485004975
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3137,7 +3137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1559312404
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3754,7 +3754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1735471381
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4511,7 +4511,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 699664800}
         m_TargetAssemblyTypeName: ButtonUI, Assembly-CSharp
-        m_MethodName: playMouse
+        m_MethodName: playMouseFrog
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
