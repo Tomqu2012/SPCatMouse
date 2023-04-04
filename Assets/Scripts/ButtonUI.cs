@@ -62,6 +62,12 @@ public class ButtonUI : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Title");
     }
+
+    public void Graveyard()
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("Graveyard");
+        }
     
     public void Map()
     {

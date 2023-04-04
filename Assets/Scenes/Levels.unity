@@ -673,7 +673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &182646772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -742,7 +742,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 699664800}
         m_TargetAssemblyTypeName: ButtonUI, Assembly-CSharp
-        m_MethodName: playMouse
+        m_MethodName: Graveyard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1371,6 +1371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   options: {fileID: 0}
+  CountDown: {fileID: 0}
+  center: {fileID: 0}
 --- !u!1 &701573017
 GameObject:
   m_ObjectHideFlags: 0
