@@ -16,67 +16,77 @@ public class movement : MonoBehaviour
     public float NormalSpeed = 15f;
     public float stamina = 10f;
     public bool ready;
+    public Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
         Manager = GameObject.Find("Spawner");
         speed = NormalSpeed;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         if (gameObject.GetComponent<health>().alive && ready) {
-            if (!rotation())
-            {
-                thrust(200);
-            }
-            else
-            {
-                thrust(130);
-            }
+            // if (!rotation())
+            // {
+            //     thrust(200);
+            // }
+            // else
+            // {
+            //     thrust(130);
+            // }
+            thrust(200);
             StaminaFill();
         }
+
+        thrust(200);
     }
 
 
-    public bool rotation() {
-        if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
-        {
-            transform.Rotate(0f, 0f, 3.5f);
-            return true;
-        }
+    // public bool rotation() {
+        // if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
+        // {
+        //     transform.Rotate(0f, 0f, 3.5f);
+        //     return true;
+        // }
 
-        if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
-        {
-            transform.Rotate(0f, 0f, -3.5f);
-            return true;
-        }
+        // if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
+        // {
+        //     transform.Rotate(0f, 0f, -3.5f);
+        //     return true;
+        // }
 
-        else
-        {
-            transform.Rotate(0f, 0f, Random.Range(-0.5f, 0.5f));
-            return false;
-        }
-    }
+        // else
+        // {
+        //     transform.Rotate(0f, 0f, Random.Range(-0.5f, 0.5f));
+        //     return false;
+        // }
+
+    //     Vector3 catPos = cam.ScreenToWorldPoint(Input.mousePosition);
+    //     transform.rotation = Quaternion.LookRotation(new Vector3(0,0,5), catPos - transform.position);
+    // }
 
     public void thrust(float speed) {
         dust.Play();
-        if (stamina > 0f && ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))))
+        rb2D.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Impulse);
+        if (stamina > 0f && ((Input.GetKey(KeyCode.W) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.UpArrow))))
         {
-            rb2D.AddForce(transform.up * 2 * speed * Time.deltaTime, ForceMode2D.Impulse);
             stamina -= (2 * Time.deltaTime);
+            speed = 400f;
         }
         else
         {
-            rb2D.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Impulse);
+            speed = 15f;
         }
-        if (stamina < 10f && !((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))))
+        if (stamina < 10f && !((Input.GetKey(KeyCode.W) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.UpArrow))))
         {
             StartCoroutine("Regen", 3f);
         }
-
+        Vector3 catPos = cam.ScreenToWorldPoint(Input.mousePosition);
+        transform.rotation = Quaternion.LookRotation(new Vector3(0,0,5), catPos - transform.position);
     }
 
 
