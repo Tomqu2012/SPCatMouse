@@ -24,14 +24,14 @@ public class countdown : MonoBehaviour
         {
             cat.GetComponent<CatBot>().gameReady = false;
         }
-        player.GetComponent<movement>().ready = false;
+        // player.GetComponent<movement>().ready = false;
         StartCoroutine(CountdownStart());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     IEnumerator CountdownStart() {
