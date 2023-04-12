@@ -12,6 +12,7 @@ public class countdown : MonoBehaviour
     public float countdownTime;
     public TMP_Text countdownDisplay;
     public bool active;
+	public bool mouseMode;
 
 
     // Start is called before the first frame update

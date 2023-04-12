@@ -19,7 +19,7 @@ public class Keys : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        keytxt.text = "×" + player.GetComponent<movement>().keys.ToString("0");
+        //keytxt.text = "ï¿½" + player.GetComponent<movement>().keys.ToString("0");
         if (!player.GetComponent<health>().alive)
         {
             gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-780f, -579f);
