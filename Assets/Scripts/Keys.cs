@@ -8,6 +8,7 @@ public class Keys : MonoBehaviour
 {
     public GameObject player;
     public TMP_Text keytxt;
+	public bool catMode;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +20,12 @@ public class Keys : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		bool x = false;
+		if (!catMode) {
+			x = !player.GetComponent<health>().alive;
+		}
         //keytxt.text = "�" + player.GetComponent<movement>().keys.ToString("0");
-        if (!player.GetComponent<health>().alive)
+        if (x)
         {
             gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-780f, -579f);
         }

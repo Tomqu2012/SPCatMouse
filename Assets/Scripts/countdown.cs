@@ -12,7 +12,7 @@ public class countdown : MonoBehaviour
     public float countdownTime;
     public TMP_Text countdownDisplay;
     public bool active;
-	public bool mouseMode;
+	public bool catMode;
 
 
     // Start is called before the first frame update
@@ -20,10 +20,13 @@ public class countdown : MonoBehaviour
     void Start()
     {
         active = true;
-        foreach (GameObject cat in cats)
-        {
-            cat.GetComponent<CatBot>().gameReady = false;
-        }
+		if (!catMode) {
+			foreach (GameObject cat in cats)
+        	{
+            	cat.GetComponent<CatBot>().gameReady = false;
+        	}
+		}
+        
         // player.GetComponent<movement>().ready = false;
         StartCoroutine(CountdownStart());
     }
@@ -42,11 +45,13 @@ public class countdown : MonoBehaviour
         }
 
         active = false;
-        player.GetComponent<movement>().ready = true;
-        foreach (GameObject cat in cats)
-        {
-            cat.GetComponent<CatBot>().gameReady = true;
-        }
+        if (!catMode) {
+	        player.GetComponent<movement>().ready = true;
+			foreach (GameObject cat in cats)
+        	{
+            	cat.GetComponent<CatBot>().gameReady = false;
+        	}
+		}
 
         countdownDisplay.text = "GO!";
         yield return new WaitForSeconds(1f);

@@ -20,6 +20,7 @@ public class Timer : MonoBehaviour
     public TMP_Text end;
     public Volume volume;
     public bool labMap;
+    public bool catMode;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,12 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetComponent<health>().alive)
+        bool x = true;
+        if (!catMode)
+        {
+            x = player.GetComponent<health>().alive;
+        }
+        if (x)
         {
             if (timeLeft <= 40 && timeLeft >= 39.85f && labMap)
             {
@@ -62,9 +68,8 @@ public class Timer : MonoBehaviour
                 global.intensity = 0f;
                 volume.weight = 1f;
             }
-            if (player.GetComponent<movement>().ready) {
-                timeLeft -= (Time.deltaTime);
-            }
+            timeLeft -= (Time.deltaTime);
+            
 
             if (volume.weight <= 1f)
             {

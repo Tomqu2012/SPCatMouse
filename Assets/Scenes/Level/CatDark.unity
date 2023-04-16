@@ -264,15 +264,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5465158538828596324, guid: e0aee21843d594569949e93d03a875c0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5465158538828596324, guid: e0aee21843d594569949e93d03a875c0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5465158538828596324, guid: e0aee21843d594569949e93d03a875c0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5465158538828596324, guid: e0aee21843d594569949e93d03a875c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1082,7 +1082,7 @@ MonoBehaviour:
   countdownTime: 5
   countdownDisplay: {fileID: 322233671}
   active: 0
-  mouseMode: 0
+  catMode: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,8 +1616,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e56a8225069ff4497413ac2e0b77d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 174773082}
   keytxt: {fileID: 879381400}
+  catMode: 1
 --- !u!114 &879381400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3206,7 +3207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 0.5
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -4658,6 +4659,7 @@ MonoBehaviour:
   end: {fileID: 1377788791}
   volume: {fileID: 5980061613224648442}
   labMap: 0
+  catMode: 0
 --- !u!1 &2074091433
 GameObject:
   m_ObjectHideFlags: 0

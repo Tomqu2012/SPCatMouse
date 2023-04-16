@@ -19,6 +19,7 @@ public class Spawner : MonoBehaviour
     public float lowerBoundX = -50f;
     public float upperBoundY = 33f;
     public float lowerBoundY = -33f;
+	public bool catMode;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +43,14 @@ public class Spawner : MonoBehaviour
         {
             GameObject botClone = Instantiate(botPrefab, new Vector2(Random.Range(lowerBoundX, upperBoundX), Random.Range(lowerBoundY, upperBoundY)),
                 Quaternion.identity);
-            foreach (GameObject catPrefab in catPrefabs)
-            {
-                catPrefab.GetComponent<CatBot>().mice.Add(botClone);
-                botClone.GetComponent<MiceAI>().Cat.Add(catPrefab);
-            }
+			if (!catMode) {
+				foreach (GameObject catPrefab in catPrefabs)
+            	{
+                	catPrefab.GetComponent<CatBot>().mice.Add(botClone);
+                	botClone.GetComponent<MiceAI>().Cat.Add(catPrefab);
+            	}
+			}
+            
         }
     }
 
