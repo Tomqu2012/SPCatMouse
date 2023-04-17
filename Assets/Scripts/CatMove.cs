@@ -11,6 +11,7 @@ public class catMove : MonoBehaviour
     private float speed;
     private Vector3 offset = new Vector3(0, 1.2f, 0);
     public Camera cam;
+	public int score = 0;
 
     // Start is called before the first frame update
     void Start()
