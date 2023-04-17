@@ -6,7 +6,7 @@ public class Shooting : MonoBehaviour
 {
     public Transform ball;
     public GameObject bullet;
-    public bool ready = true;
+    public bool ready = false;
 
     // Update is called once per frame
     void Update()

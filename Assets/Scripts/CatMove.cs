@@ -7,22 +7,25 @@ public class catMove : MonoBehaviour
 {
     public Rigidbody2D rb2D;
 
-    public bool alive;
+    public bool ready;
     private float speed;
     private Vector3 offset = new Vector3(0, 1.2f, 0);
-
+    public Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
-        speed = 10f;
+        speed = 100f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rotation();
-        thrust();
+        if (ready)
+        {
+            rotation();
+            thrust();
+        }
     }
 
 
@@ -39,6 +42,8 @@ public class catMove : MonoBehaviour
     }
 
     public void thrust() {
-		rb2D.AddForce(transform.right * speed * Time.deltaTime, ForceMode2D.Impulse);      
+        rb2D.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Impulse);
+        Vector3 catPos = cam.ScreenToWorldPoint(Input.mousePosition);
+        transform.rotation = Quaternion.LookRotation(new Vector3(0,0,5), catPos - transform.position);    
     }
 }

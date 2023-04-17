@@ -351,11 +351,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2274786494649430352, guid: e0aee21843d594569949e93d03a875c0, type: 3}
   m_PrefabInstance: {fileID: 174773081}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &174773083 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8716503048663988871, guid: e0aee21843d594569949e93d03a875c0, type: 3}
-  m_PrefabInstance: {fileID: 174773081}
-  m_PrefabAsset: {fileID: 0}
 --- !u!50 &174773084 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 1806149109509077557, guid: e0aee21843d594569949e93d03a875c0, type: 3}
@@ -373,8 +368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b747a83ef1d6a4cf09a08e92b06ac27b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 174773091}
-  bullet: {fileID: 174773083}
+  ball: {fileID: 1056696758}
+  bullet: {fileID: 8716503048563179397, guid: 323fbe6de34bb40cfa24bb81aeae0115, type: 3}
   ready: 1
 --- !u!114 &174773086
 MonoBehaviour:
@@ -389,32 +384,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2D: {fileID: 174773084}
-  alive: 0
---- !u!114 &174773090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 174773082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c4b17f6eb3a8a148adc87733a007c23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  ready: 0
   cam: {fileID: 519420031}
-  Manager: {fileID: 5980061612943198363}
-  boom: {fileID: 2177500804469530452, guid: de854d7a8b162d941953bff5c29936c4, type: 3}
-  End: {fileID: 1377788789}
-  healthBarimg: {fileID: 1530384703}
-  isHurt: 0
-  alive: 0
-  HP: 0
---- !u!4 &174773091 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8523538292710256513, guid: e0aee21843d594569949e93d03a875c0, type: 3}
-  m_PrefabInstance: {fileID: 174773081}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &213503500
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,6 +1982,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055477270}
   m_CullTransparentMesh: 1
+--- !u!4 &1056696758 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 357678024058165318, guid: e0aee21843d594569949e93d03a875c0, type: 3}
+  m_PrefabInstance: {fileID: 174773081}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1114237659
 GameObject:
   m_ObjectHideFlags: 0
@@ -4659,7 +4635,7 @@ MonoBehaviour:
   end: {fileID: 1377788791}
   volume: {fileID: 5980061613224648442}
   labMap: 0
-  catMode: 0
+  catMode: 1
 --- !u!1 &2074091433
 GameObject:
   m_ObjectHideFlags: 0
@@ -5671,6 +5647,7 @@ MonoBehaviour:
   lowerBoundX: -50
   upperBoundY: 33
   lowerBoundY: -33
+  catMode: 1
 --- !u!4 &5980061612943198362
 Transform:
   m_ObjectHideFlags: 0

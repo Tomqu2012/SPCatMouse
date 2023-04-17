@@ -52,7 +52,10 @@ public class countdown : MonoBehaviour
             	cat.GetComponent<CatBot>().gameReady = false;
         	}
 		}
-
+		else {
+			player.GetComponent<catMove>().ready = true;
+			player.GetComponent<Shooting>().ready = true;
+		}
         countdownDisplay.text = "GO!";
         yield return new WaitForSeconds(1f);
         countdownDisplay.gameObject.SetActive(false);
