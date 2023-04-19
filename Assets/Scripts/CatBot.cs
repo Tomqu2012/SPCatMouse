@@ -162,7 +162,7 @@ public class CatBot : MonoBehaviour
 
     public void thrust2()
     {
-        transform.Translate(Vector3.right * speed * Time.deltaTime);
+        transform.Translate(Vector3.up * speed * Time.deltaTime);
     }
 
     void OnCollisionEnter2D(Collision2D col)

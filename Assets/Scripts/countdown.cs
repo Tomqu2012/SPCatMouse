@@ -49,7 +49,7 @@ public class countdown : MonoBehaviour
 	        player.GetComponent<movement>().ready = true;
 			foreach (GameObject cat in cats)
         	{
-            	cat.GetComponent<CatBot>().gameReady = false;
+            	cat.GetComponent<CatBot>().gameReady = true;
         	}
 		}
 		else {

@@ -13,7 +13,8 @@ public class movement : MonoBehaviour
     public ParticleSystem dust;
     public Image staminaBarimg;
     private float speed;
-    public float NormalSpeed = 15f;
+    public float NormalSpeed = 150f;
+	public float IAmSped = 1000f;
     public float stamina = 10f;
     public bool ready;
     public Camera cam;
@@ -29,7 +30,7 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.GetComponent<health>().alive && ready) {
+        if (ready) {
             // if (!rotation())
             // {
             //     thrust(200);
@@ -42,7 +43,6 @@ public class movement : MonoBehaviour
             StaminaFill();
         }
 
-        thrust(200);
     }
 
 
@@ -71,16 +71,17 @@ public class movement : MonoBehaviour
 
     public void thrust(float speed) {
         dust.Play();
-        rb2D.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Impulse);
-        if (stamina > 0f && ((Input.GetKey(KeyCode.W) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.UpArrow))))
+		
+        if (stamina > 0f && ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))))
         {
             stamina -= (2 * Time.deltaTime);
-            speed = 400f;
+            speed = IAmSped;
         }
         else
         {
-            speed = 15f;
+            speed = NormalSpeed;
         }
+        rb2D.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Impulse);
         if (stamina < 10f && !((Input.GetKey(KeyCode.W) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.UpArrow))))
         {
             StartCoroutine("Regen", 3f);
