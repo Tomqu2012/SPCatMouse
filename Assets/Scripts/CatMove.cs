@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class catMove : MonoBehaviour
 {
+    public SpriteRenderer spriteRenderer;
+    public GameObject GM;
+    public GameObject Spawner;
+
     public Rigidbody2D rb2D;
 
     public bool ready;
@@ -12,10 +17,13 @@ public class catMove : MonoBehaviour
     private Vector3 offset = new Vector3(0, 1.2f, 0);
     public Camera cam;
 	public int score = 0;
+	public List<GameObject> mice = new List<GameObject>();
+	public TMP_Text scoretxt;
 
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer.sprite = GM.GetComponent<Manager>().sprites[Manager.catSpriteID];
         speed = 100f;
     }
 
@@ -26,6 +34,8 @@ public class catMove : MonoBehaviour
         {
             rotation();
             thrust();
+			updateScore();
+			scoretxt.text = "Score: " + score.ToString("0");
         }
     }
 
@@ -47,4 +57,26 @@ public class catMove : MonoBehaviour
         Vector3 catPos = cam.ScreenToWorldPoint(Input.mousePosition);
         transform.rotation = Quaternion.LookRotation(new Vector3(0,0,5), catPos - transform.position);    
     }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Coin")
+        {
+            Manager.coins++;
+            Spawner.GetComponent<Spawner>().numCoins--;
+            Destroy(col.gameObject);
+        }
+    }
+
+    public void updateScore() {
+		foreach (GameObject g in mice) {
+			if (g == null) {
+				score++;
+				mice.Remove(g);
+
+			}
+
+		}
+
+	}
 }

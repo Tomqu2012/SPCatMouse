@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class movement : MonoBehaviour
 {
-    public GameObject Manager;
+    public SpriteRenderer spriteRenderer;
+    public GameObject Spawner;
+    public GameObject GM;
     public GameObject Fireworks;
-    public static float coins = 0;
-    public float keys = 0;
     public Rigidbody2D rb2D;
     public ParticleSystem dust;
     public Image staminaBarimg;
@@ -18,11 +18,13 @@ public class movement : MonoBehaviour
     public float stamina = 10f;
     public bool ready;
     public Camera cam;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        Manager = GameObject.Find("Spawner");
+        spriteRenderer.sprite = GM.GetComponent<Manager>().sprites[Manager.mouseSpriteID];
+        Spawner = GameObject.Find("Spawner");
         speed = NormalSpeed;
 
     }
@@ -109,14 +111,14 @@ public class movement : MonoBehaviour
     {
         if (col.gameObject.tag == "Coin")
         {
-            coins++;
-            Manager.GetComponent<Spawner>().numCoins--;
+            Manager.coins++;
+            Spawner.GetComponent<Spawner>().numCoins--;
             Destroy(col.gameObject);
         }
 
         if (col.gameObject.tag == "Key")
         {
-            keys++;
+            Manager.keys++;
             GameObject clone2 = Instantiate(Fireworks, col.gameObject.transform.position, Quaternion.identity);
             Destroy(clone2.gameObject, 1f);
             Destroy(col.gameObject);

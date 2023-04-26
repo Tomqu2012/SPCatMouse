@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     public List<GameObject> catPrefabs;
     public GameObject coinPrefab;
     public GameObject[] forestPrefabs;
+    public GameObject catPlayer;
     public float numBots;
     public float forestObstacles;
     public float numCheese;
@@ -50,6 +51,10 @@ public class Spawner : MonoBehaviour
                 	botClone.GetComponent<MiceAI>().Cat.Add(catPrefab);
             	}
 			}
+            else
+            {
+                catPlayer.GetComponent<catMove>().mice.Add(botClone);
+            }
             
         }
     }

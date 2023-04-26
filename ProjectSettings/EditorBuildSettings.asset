@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 3711fe5e9f3422c4f83ad7c24a3144fb
   - enabled: 1
+    path: Assets/Scenes/CatLevels.unity
+    guid: 3eddef7a529d045d497fb78537ed4335
+  - enabled: 1
     path: Assets/Scenes/Levels.unity
     guid: 4259b8cd9544c794a9a68033cbc451f1
   - enabled: 0
@@ -24,30 +27,45 @@ EditorBuildSettings:
     path: Assets/Scenes/Shop.unity
     guid: d946d2868c96e654e9d70f15c9f4f317
   - enabled: 1
+    path: Assets/Scenes/Achievements.unity
+    guid: 71b0ba9ea6c5348c1b3673335a86397e
+  - enabled: 1
     path: Assets/Scenes/Level/Frog.unity
     guid: 29553f76567ba3e43ab75ee899f02a3a
+  - enabled: 1
+    path: Assets/Scenes/Level/Bedroom.unity
+    guid: ac4139fd6b616442ea384e2a73f07728
+  - enabled: 1
+    path: Assets/Scenes/Level/Graveyard.unity
+    guid: afdc89cff673051478cb4c360957e337
   - enabled: 1
     path: Assets/Scenes/Level/Lab.unity
     guid: 4d6cdfa7886fb4abdb235ab776bf7d3c
   - enabled: 1
     path: Assets/Scenes/Level/Dark.unity
     guid: cb7fe3e49ec9442f8ae341b2cbe68a5d
+  - enabled: 1
+    path: Assets/Scenes/Level/CatFrog.unity
+    guid: 2e0256a836f2c4f8cab5dc985f725207
+  - enabled: 1
+    path: Assets/Scenes/Level/CatBedroom.unity
+    guid: 22e43edb79aa34c5a8fa47f25c1fee82
+  - enabled: 1
+    path: Assets/Scenes/Level/CatGraveyard.unity
+    guid: d045d3c19d3d2416aaaa39a666f32381
+  - enabled: 1
+    path: Assets/Scenes/Level/CatLab.unity
+    guid: e7de2e4eaa35948a782c0e2d08a0157e
+  - enabled: 1
+    path: Assets/Scenes/Level/CatDark.unity
+    guid: 927f2d22633314652985f5545f6265dd
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Multiplayer.unity
-    guid: c037f7aa4c743417daa3764323a43999
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Launcher.unity
-    guid: 8d4618a92e9db45ef8682eaa5408b29e
-  - enabled: 1
-    path: Assets/Scenes/Level/Graveyard.unity
-    guid: afdc89cff673051478cb4c360957e337
   m_configObjects: {}

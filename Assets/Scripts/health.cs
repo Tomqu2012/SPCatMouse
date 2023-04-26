@@ -28,10 +28,9 @@ public class health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HP <= 0f) {
-            GameObject clone2 = Instantiate(boom, transform.position, Quaternion.identity);
-            Destroy(clone2.gameObject, 0.5f);
-            clone2.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
+        if (HP <= 0f)
+        {
+            gameObject.GetComponent<movement>().ready = false;
             alive = false;
         }
 

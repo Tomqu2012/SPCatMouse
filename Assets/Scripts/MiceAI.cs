@@ -64,6 +64,7 @@ public class MiceAI : MonoBehaviour
         
         if (HP <= 0f)
         {
+			
 			foreach (GameObject cat in Cat){
             	cat.GetComponent<CatBot>().mice.Remove(gameObject);
 			}
@@ -98,7 +99,7 @@ public class MiceAI : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Cat")
+        if (col.gameObject.tag == "Cat" || col.gameObject.tag == "Player")
         {
             HP -= 2f;
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 0.1924528f, 0.1924528f);

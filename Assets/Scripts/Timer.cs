@@ -21,6 +21,8 @@ public class Timer : MonoBehaviour
     public Volume volume;
     public bool labMap;
     public bool catMode;
+	public GameObject center;
+    public GameObject End;
 
     // Start is called before the first frame update
     void Start()
@@ -68,35 +70,42 @@ public class Timer : MonoBehaviour
                 global.intensity = 0f;
                 volume.weight = 1f;
             }
-            timeLeft -= (Time.deltaTime);
-            
 
+			if (!center.GetComponent<countdown>().active){
+            	timeLeft -= (Time.deltaTime);
+			}
+            
             if (volume.weight <= 1f)
             {
                 volume.weight += (Time.deltaTime / (tempTime - 1f)) * .3f;
             }
 
-            if (volume.weight >= 0.75f && spotLight.intensity >= 0f)
+            /*if (volume.weight >= 0.75f && spotLight.intensity >= 0f)
             {
                 spotLight.intensity -= (Time.deltaTime / 10f);
-            }
+            }*/
 
-            else if (volume.weight >= 0.50f && !labMap)
+            /*else if (volume.weight >= 0.50f && !labMap)
             {
                 Mist.SetActive(true);
-            }
+            }*/
             if (volume.weight >= 0.25f)
             {
-                Lightrays.SetActive(false);
+                //Lightrays.SetActive(false);
             }
-
-            time.text = ((int)(timeLeft / 60)).ToString("0") + ":" + (timeLeft % 60).ToString("00");
-
+			
+			time.text = ((int)(timeLeft / 60)).ToString("0") + ":" + (timeLeft % 60).ToString("00");
+			
             if (timeLeft < 1)
             {
+				Manager.levelCompleted++;
                 time.text = "ROUND WON";
                 end.text = "LEVEL PASSED";
-                player.GetComponent<health>().alive = false;
+                End.SetActive(true);
+				if (!catMode) {
+					player.GetComponent<health>().alive = false;
+				}
+                
             }
 
             if (cam.orthographicSize >= 10f)

@@ -16,6 +16,7 @@ public class Magnet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Vector2.Distance(Player.transform.position, transform.position) <= 5f)  
         {
             transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, Time.deltaTime * speed);

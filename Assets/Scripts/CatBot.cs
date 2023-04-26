@@ -31,7 +31,7 @@ public class CatBot : MonoBehaviour
         boundrybreach = false;
         stuck = false;
 
-        speed = 16f;
+        speed = 14f;
         rotateRate1 = Random.Range(0.25f, 0.50f);
         rotateRate2 = Random.Range(2.5f, 5.0f);
 
@@ -98,7 +98,7 @@ public class CatBot : MonoBehaviour
 
         Vector3 dir = closestMice.transform.position - transform.position;
         float angle = Mathf.Atan2(dir.x - 1.5f, dir.y) * Mathf.Rad2Deg;
-        angle = 90 - angle;
+        angle = - angle;
         if (angle > 180)
         {
             angle -= 360;
@@ -170,7 +170,7 @@ public class CatBot : MonoBehaviour
         if (col.gameObject.tag == "Border")
         {
             boundrybreach = true;
-            transform.Rotate(0f, 0f, 180);
+            //transform.Rotate(0f, 0f, 180);
             StartCoroutine(Normalize(Random.Range(0.5f, 2f)));
         }
 
